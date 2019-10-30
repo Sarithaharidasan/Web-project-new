@@ -1,0 +1,52 @@
+extends layout
+
+block content
+  -data = data || {}
+
+  if errors
+    ul.my-errors
+      for error in errors
+        li= error.msg
+
+  form(action="." method="POST" class="form-registration")
+    label(for="name") Name:
+    input(
+      type="text"
+      id="name"
+      name="name"
+      class="form-control"
+      value=data.name
+    )
+
+    label(for="email") Email:
+    input(
+      type="email"
+      id="email"
+      name="email"
+      class="form-control"
+      value=data.email
+    )
+
+    label(for="gender") Gender:
+    input(
+      type="text"
+      id="gender"
+      name="gender"
+      class="form-control"
+      value=data.gender
+    )
+
+    label(for="dob") DOB:
+    input(
+      type="date"
+      id="dob"
+      name="dob"
+      class="form-control"
+      value=data.dob
+    )
+
+    input(
+      type="submit"
+      value="Submit"
+      class="btn btn-lg btn-primary btn-block"
+    )
